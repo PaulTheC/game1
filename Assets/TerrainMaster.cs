@@ -6,7 +6,7 @@ using System;
 public class TerrainMaster : MonoBehaviour
 {
     public GameObject prefabL;
-
+    public float noiseSize = 100;
 
     public static int viewDistance = 5;
     public static GameObject reference;
@@ -54,7 +54,7 @@ public class TerrainMaster : MonoBehaviour
             chunks[i].transform.SetParent(reference.transform);
             chunks[i].layer = LayerMask.NameToLayer("Ground");
             chunks[i].tag = "Ground";
-
+            chunks[i].GetComponent<MeshGeneratorV2>().scale = reference.GetComponent<TerrainMaster>().noiseSize;
         }
 
     }
@@ -86,6 +86,7 @@ public class TerrainMaster : MonoBehaviour
         {
             for(int y = -viewDistance; y <= viewDistance; y++)
             {
+                chunks[i].GetComponent<MeshGeneratorV2>().scale = reference.GetComponent<TerrainMaster>().noiseSize;
                 chunks[i].transform.position = new Vector3(pos.x + x * 25, 0, pos.z + y * 25);
                 chunks[i].GetComponent<MeshGeneratorV2>().createMesh();
                 chunks[i].transform.localScale = Vector3.one;

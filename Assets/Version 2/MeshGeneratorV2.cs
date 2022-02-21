@@ -107,7 +107,7 @@ public class MeshGeneratorV2 : MonoBehaviour
 
     private float GenerateNoiseHeight(int z, int x, Vector2[] octaveOffsets)
     {
-        float amplitude = 20;
+        float amplitude = 30;
         float frequency = 1;
         float persistence = 0.5f;
         float noiseHeight = 0;
@@ -120,7 +120,7 @@ public class MeshGeneratorV2 : MonoBehaviour
 
             // Create perlinValues and shape island with fallOff Map. 
             //The *2-1 is to create a flat floor level
-            float perlinValue = (Mathf.PerlinNoise(mapZ, mapX)) * 2 - 1;
+            float perlinValue = (Mathf.PerlinNoise(mapZ, mapX));
             noiseHeight += heightCurve.Evaluate(perlinValue) * amplitude;
             frequency *= lacunarity;
             amplitude *= persistence;

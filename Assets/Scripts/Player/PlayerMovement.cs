@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = 0;
+            velocity.y = -2;
         }
 
         float x = Input.GetAxisRaw("Horizontal");
