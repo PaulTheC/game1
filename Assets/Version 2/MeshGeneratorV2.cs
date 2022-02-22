@@ -50,6 +50,18 @@ public class MeshGeneratorV2 : MonoBehaviour
         CreateNewMap();
     }
 
+    public void setMesh(Mesh mesh)
+    {
+        this.mesh = mesh;
+        GetComponent<MeshFilter>().mesh = mesh;
+        GetComponent<MeshCollider>().sharedMesh = mesh;
+    }
+
+    public Mesh getMesh()
+    {
+        return mesh;
+    }
+
     private void SetNullProperties() 
     {
         if (xSize <= 0) xSize = 25;
